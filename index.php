@@ -21,10 +21,12 @@ $tamanhoFonte = isset($_COOKIE['tamanhoFonte']) ? $_COOKIE['tamanhoFonte'] : '16
             document.cookie = "corFundo=" + cor + ";expires=" + expires.toUTCString() + ";path=/";
         }
 
-        // Função para mudar o tamanho da fonte
+        // Função para mudar o tamanho da fonte de toda a página
         function mudarFonte(tamanho) {
-            // Aplica o tamanho de fonte no corpo da página
-            document.body.style.fontSize = tamanho;
+            const elementos = document.querySelectorAll('*'); // Seleciona todos os elementos
+            elementos.forEach((elemento) => {
+                elemento.style.fontSize = tamanho;
+            });
 
             // Criar ou atualizar o cookie de tamanho de fonte por 2 minutos
             const expires = new Date();
@@ -64,7 +66,7 @@ $tamanhoFonte = isset($_COOKIE['tamanhoFonte']) ? $_COOKIE['tamanhoFonte'] : '16
 
         <section class="sobre-rockinrio">
             <h2>Sobre o Rock in Rio</h2>
-            <p>O **Rock in Rio** é um dos maiores e mais icônicos festivais de música do mundo. Fundado em 1985, o evento é uma celebração de diversidade cultural e um encontro de milhões de fãs de música de todos os gêneros. Com edições em diversos países, o Rock in Rio é uma experiência única, repleta de grandes shows, atividades interativas e muita energia!</p>
+            <p>O Rock in Rio é um dos maiores e mais icônicos festivais de música do mundo. Fundado em 1985, o evento é uma celebração de diversidade cultural e um encontro de milhões de fãs de música de todos os gêneros. Com edições em diversos países, o Rock in Rio é uma experiência única, repleta de grandes shows, atividades interativas e muita energia!</p>
             
             <div class="imagem-festival">
                 <img src="img-rockinrio.jpg" alt="Rock in Rio Festival" />
